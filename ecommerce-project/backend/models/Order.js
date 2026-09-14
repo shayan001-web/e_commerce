@@ -1,0 +1,3 @@
+import mongoose from 'mongoose';
+const schema = new mongoose.Schema({ user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, items: [{ product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' }, name: String, image: String, quantity: Number, price: Number }], shippingAddress: Object, paymentMethod: { type: String, default: 'Cash on Delivery' }, paymentStatus: { type: String, default: 'Pending' }, orderStatus: { type: String, enum: ['Processing', 'Shipped', 'Delivered', 'Cancelled'], default: 'Processing' }, subtotal: Number, shippingPrice: Number, totalPrice: Number }, { timestamps: true });
+export default mongoose.model('Order', schema);

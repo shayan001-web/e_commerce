@@ -1,0 +1,1 @@
+import { Router } from 'express'; import * as c from '../controllers/userController.js'; import { protect, adminOnly } from '../middleware/auth.js'; const r = Router(); r.use(protect, adminOnly); r.get('/', c.list); r.get('/:id', c.getOne); r.put('/:id', c.update); r.delete('/:id', c.remove); export default r;

@@ -1,0 +1,1 @@
+import { Router } from 'express'; import * as c from '../controllers/cartController.js'; import { protect } from '../middleware/auth.js'; const r = Router(); r.use(protect); r.get('/', c.get); r.post('/', c.add); r.put('/:productId', c.update); r.delete('/:productId', c.remove); r.delete('/', c.clear); export default r;

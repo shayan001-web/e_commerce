@@ -1,0 +1,1 @@
+import { Router } from 'express'; import * as c from '../controllers/categoryController.js'; import { protect, adminOnly } from '../middleware/auth.js'; const r = Router(); r.get('/', c.list); r.post('/', protect, adminOnly, c.create); r.put('/:id', protect, adminOnly, c.update); r.delete('/:id', protect, adminOnly, c.remove); export default r;
